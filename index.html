@@ -2011,15 +2011,48 @@
     }
 
     // Form submission (demo)
-    function submitForm() {
+    async function submitForm() {
       const first = document.getElementById('firstName').value.trim();
       const email = document.getElementById('email').value.trim();
       if (!first || !email) {
         alert('Please fill in at least your name and email address.');
         return;
       }
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
+
+      const btn = document.querySelector('.form-submit');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      const data = {
+        'First Name':  first,
+        'Last Name':   document.getElementById('lastName').value.trim(),
+        'Email':       email,
+        'Phone':       document.getElementById('phone').value.trim(),
+        'Company':     document.getElementById('company').value.trim(),
+        'Reason':      document.getElementById('service').value,
+        'Message':     document.getElementById('message').value.trim(),
+      };
+
+      try {
+        const response = await fetch('https://formspree.io/f/xojowbek', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          document.getElementById('contactForm').style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'flex';
+        } else {
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again or reach out directly.');
+        }
+      } catch (err) {
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        alert('Something went wrong. Please check your connection and try again.');
+      }
     }
   </script>
 
