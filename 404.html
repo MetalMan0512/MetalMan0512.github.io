@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>Page Not Found | Daniel Hillhouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --navy-deep:  #0A1628;
+      --navy-mid:   #12233D;
+      --navy-light: #1E3A5F;
+      --gold:       #C9A84C;
+      --gold-light: #E2C47A;
+      --gold-dark:  #9E7D30;
+      --white:      #FFFFFF;
+      --slate:      #8A9BB0;
+      --text-light: #CBD5E1;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy-deep);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── Nav ─────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--navy-deep);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo { text-decoration: none; }
+    .nav-logo-name {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+    .nav-logo-title {
+      display: block;
+      font-size: 11px;
+      color: var(--slate);
+      letter-spacing: 0.5px;
+    }
+    .nav-home {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--slate);
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-home:hover { color: var(--gold); }
+
+    /* ─── 404 Content ─────────────────────────────────────────── */
+    .page-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+      text-align: center;
+    }
+    .four-oh-four-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(100px, 20vw, 160px);
+      font-weight: 700;
+      color: var(--navy-light);
+      line-height: 1;
+      letter-spacing: 8px;
+      margin-bottom: 8px;
+    }
+    .four-oh-four-number span { color: var(--gold); }
+    .gold-line {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin: 24px auto;
+    }
+    .four-oh-four-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .four-oh-four-desc {
+      font-size: 16px;
+      color: var(--slate);
+      line-height: 1.7;
+      max-width: 420px;
+      margin: 0 auto 40px;
+    }
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy-deep);
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    /* ─── Footer ──────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 13px;
+      color: var(--slate);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-name">Daniel Hillhouse</span>
+        <span class="nav-logo-title">Low Voltage Specialist · CA Lic. #1148194</span>
+      </a>
+      <a href="index.html" class="nav-home">← Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div>
+      <div class="four-oh-four-number">4<span>0</span>4</div>
+      <div class="gold-line"></div>
+      <h1 class="four-oh-four-title">Page Not Found</h1>
+      <p class="four-oh-four-desc">The page you're looking for doesn't exist or may have been moved. Head back to the homepage to find what you need.</p>
+      <a href="index.html" class="btn btn-gold">Back to Homepage</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Daniel Hillhouse. All rights reserved.
+  </footer>
+
+</body>
+</html>
