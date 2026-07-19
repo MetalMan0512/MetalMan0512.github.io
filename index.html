@@ -86,6 +86,63 @@
     ]
   }
   </script>
+  <!-- FAQPage Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are you licensed in California?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Daniel holds California Contractor License #1148194 (C-7 Low Voltage) and is OSHA 30 certified."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is your project experience based?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Daniel's project experience is rooted in California — Northern California, the San Francisco Bay Area, Southern California, and everywhere in between. He has also worked extensively across the Western and Southern United States on multi-site deployments across large geographic footprints."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of projects is your background in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Daniel's background is in commercial and enterprise-scale low voltage work: IP surveillance systems, intrusion and access control, structured cabling, networking infrastructure, and full project management. His experience spans retail, banking, food service, logistics, warehousing, and data center environments throughout California."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Have you worked as a subcontractor for other companies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Daniel has an extensive track record subcontracting for some of America's most recognized national security integrators — representing their standards in the field across statewide multi-site rollouts, with no-rework results throughout his career."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What security panel brands do you work with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Daniel is DMP Product Certified and experienced with Bosch, Honeywell, and Resideo security systems. For surveillance, he works extensively with AXIS IP cameras and NVR/VMS platforms. All cabling work is tested and verified; Fluke DSX certification is performed when required by the project scope."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are you open to full-time or staff positions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Daniel is always open to conversations with the right people. If you're looking for an experienced senior-level low voltage specialist and project manager, feel free to reach out — he's happy to have a conversation about what you have in mind."
+        }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -96,7 +153,7 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ─── Navigation ─────────────────────────────────────────── -->
-  <nav id="navbar">
+  <nav id="navbar" aria-label="Main navigation">
     <div class="container">
       <div class="nav-inner">
         <a href="#home" class="nav-logo">
@@ -734,7 +791,7 @@
             </div>
             <div>
               <div class="contact-detail-label">LinkedIn</div>
-              <div class="contact-detail-value"><a href="https://www.linkedin.com/in/daniel-hillhouse-139523251/" target="_blank" rel="noopener">linkedin.com/in/daniel-hillhouse</a></div>
+              <div class="contact-detail-value"><a href="https://www.linkedin.com/in/daniel-hillhouse-139523251/" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in new tab)">linkedin.com/in/daniel-hillhouse</a></div>
             </div>
           </div>
           <div class="service-area-box">
@@ -746,8 +803,8 @@
         </div>
         <div class="contact-form-wrap">
           <form id="contactForm">
-            <div class="contact-form-title">Send a Message</div>
-            <div class="contact-form-sub">Whether it's a project inquiry, subcontracting opportunity, or just an industry conversation — Daniel responds within one business day.</div>
+            <h2 class="contact-form-title">Send a Message</h2>
+            <p class="contact-form-sub">Whether it's a project inquiry, subcontracting opportunity, or just an industry conversation — Daniel responds within one business day.</p>
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name</label>
@@ -813,7 +870,7 @@
       <div class="faq-grid">
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button type="button" class="faq-question">
             Are you licensed in California?
             <span class="faq-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
@@ -823,7 +880,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button type="button" class="faq-question">
             Where is your project experience based?
             <span class="faq-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
@@ -833,7 +890,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button type="button" class="faq-question">
             What types of projects is your background in?
             <span class="faq-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
@@ -843,7 +900,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button type="button" class="faq-question">
             Have you worked as a subcontractor for other companies?
             <span class="faq-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
@@ -853,7 +910,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button type="button" class="faq-question">
             What security panel brands do you work with?
             <span class="faq-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
@@ -863,7 +920,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
+          <button type="button" class="faq-question">
             Are you open to full-time or staff positions?
             <span class="faq-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
@@ -902,7 +959,7 @@
           <div class="footer-col-title">Contact</div>
           <ul class="footer-links">
             <li><a href="#contact">Get in Touch</a></li>
-            <li><a href="https://www.linkedin.com/in/daniel-hillhouse-139523251/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/daniel-hillhouse-139523251/" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a></li>
           </ul>
           <div class="footer-col-title">Certifications</div>
           <ul class="footer-links">
