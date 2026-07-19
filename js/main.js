@@ -1,13 +1,5 @@
 /* ── Daniel Hillhouse — shared site scripts ─────────────────────── */
 
-/* Auto dark mode — system preference or time of day (7pm–7am) */
-(function () {
-  const root = document.documentElement;
-  const hour = new Date().getHours();
-  const isNight = hour >= 19 || hour < 7;
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (isNight || prefersDark) root.setAttribute('data-theme', 'dark');
-})();
 
 const FORM_ENDPOINT = 'https://formspree.io/f/xojowbek';
 
