@@ -12,6 +12,9 @@ body {
 }
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
+/* Underline inline body links for accessibility, but not nav/button/footer links */
+p a, li a, .faq-answer a, .contact-detail-value a { text-decoration: underline; text-underline-offset: 3px; }
+.nav-links a { text-decoration: none; }
 
 /* ─── Design Tokens ─────────────────────────────────────────────────── */
 :root {
@@ -294,7 +297,6 @@ a { text-decoration: none; color: inherit; }
   padding: 24px 20px;
   transition: border-color 0.2s;
 }
-.hero-stat:hover { border-color: rgba(201,168,76,0.3); }
 .hero-stat-number {
   font-family: 'Oswald', sans-serif;
   font-size: 38px;
@@ -316,6 +318,13 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   gap: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+a.hero-license-card:hover {
+  background: rgba(201,168,76,0.14);
+  border-color: rgba(201,168,76,0.5);
 }
 .hero-license-icon {
   width: 44px; height: 44px;
@@ -400,11 +409,6 @@ a { text-decoration: none; color: inherit; }
   gap: 10px;
   min-height: 100px;
   transition: all 0.2s;
-}
-.brand-card:hover {
-  border-color: var(--gold);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-  transform: translateY(-2px);
 }
 .brand-card svg { display: block; }
 .brand-card-label {

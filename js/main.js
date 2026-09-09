@@ -1,5 +1,6 @@
 /* ── Daniel Hillhouse — shared site scripts ─────────────────────── */
 
+
 const FORM_ENDPOINT = 'https://formspree.io/f/xojowbek';
 
 /* Navbar shadow + scroll-spy (single rAF-throttled listener) */
@@ -15,7 +16,7 @@ function handleScroll() {
     if (window.scrollY >= s.offsetTop - 100) current = s.id;
   });
   navAs.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--white)' : '';
+    a.classList.toggle('nav-active', a.getAttribute('href') === '#' + current);
   });
   scrollScheduled = false;
 }
@@ -52,6 +53,19 @@ faqQuestions.forEach((q, i) => {
   q.setAttribute('aria-controls', answer.id);
   q.addEventListener('click', () => toggleFaq(q));
 });
+
+/* Auto-open FAQ item if hash targets it */
+function openFaqByHash() {
+  const hash = window.location.hash;
+  if (!hash) return;
+  const item = document.querySelector(hash + ' .faq-question');
+  if (item && !item.classList.contains('open')) {
+    toggleFaq(item);
+    setTimeout(() => item.closest('.faq-item').scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+}
+openFaqByHash();
+window.addEventListener('hashchange', openFaqByHash);
 
 function toggleFaq(btn) {
   const answer = btn.nextElementSibling;
