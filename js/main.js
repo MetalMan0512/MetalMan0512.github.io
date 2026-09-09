@@ -54,6 +54,19 @@ faqQuestions.forEach((q, i) => {
   q.addEventListener('click', () => toggleFaq(q));
 });
 
+/* Auto-open FAQ item if hash targets it */
+function openFaqByHash() {
+  const hash = window.location.hash;
+  if (!hash) return;
+  const item = document.querySelector(hash + ' .faq-question');
+  if (item && !item.classList.contains('open')) {
+    toggleFaq(item);
+    setTimeout(() => item.closest('.faq-item').scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+}
+openFaqByHash();
+window.addEventListener('hashchange', openFaqByHash);
+
 function toggleFaq(btn) {
   const answer = btn.nextElementSibling;
   const isOpen = btn.classList.contains('open');
