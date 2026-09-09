@@ -1,7 +1,7 @@
 /* ── Daniel Hillhouse — shared site scripts ─────────────────────── */
 
 
-const FORM_ENDPOINT = 'https://formspree.io/f/xojowbek';
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
 
 /* Navbar shadow + scroll-spy (single rAF-throttled listener) */
 const navbar = document.getElementById('navbar');
@@ -102,6 +102,7 @@ if (form) {
     btn.disabled = true;
 
     const data = {
+      access_key: '75f587c6-2dc9-4ae5-8f56-d0802192e43f',
       'First Name': form.elements['firstName'].value.trim(),
       'Last Name':  form.elements['lastName'].value.trim(),
       'Email':      form.elements['email'].value.trim(),
