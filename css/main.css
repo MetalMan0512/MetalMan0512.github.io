@@ -24,6 +24,7 @@ p a, li a, .faq-answer a, .contact-detail-value a { text-decoration: underline; 
   --gold:         #C9A84C;
   --gold-light:   #E2C47A;
   --gold-dark:    #9E7D30;
+  --gold-accessible: #7D6018; /* passes WCAG AA on white/off-white */
   --white:        #FFFFFF;
   --off-white:    #F4F6F9;
   --slate:        #8B9AB0;
@@ -46,6 +47,11 @@ p a, li a, .faq-answer a, .contact-detail-value a { text-decoration: underline; 
   color: var(--gold);
   margin-bottom: 12px;
 }
+/* Accessible gold for section labels on light backgrounds */
+#about .section-label,
+#services .section-label,
+#faq .section-label,
+#contact .section-label { color: var(--gold-accessible); }
 .section-title {
   font-family: 'Oswald', sans-serif;
   font-size: clamp(28px, 4vw, 42px);
@@ -616,14 +622,15 @@ a.hero-license-card:hover {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  visibility: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease, visibility 0s linear 0.3s;
   padding: 0 24px;
   font-size: 14px;
   color: var(--text-body);
   line-height: 1.8;
   background: var(--off-white);
 }
-.faq-answer.open { max-height: 640px; padding: 18px 24px; }
+.faq-answer.open { max-height: 640px; padding: 18px 24px; visibility: visible; transition: max-height 0.3s ease, padding 0.3s ease, visibility 0s linear 0s; }
 @media (max-width: 768px) {
   .faq-grid { grid-template-columns: 1fr; }
 }
