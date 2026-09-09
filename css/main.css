@@ -1165,7 +1165,7 @@ main { display: block; }
   --off-white:    #142940;
   --text-body:    #A0AEC0;
   --text-strong:  #E2E8F0;
-  --text-muted:   #718096;
+  --text-muted:   #94A3B8;
   --border-light: rgba(255, 255, 255, 0.08);
 }
 [data-theme="dark"] body {
@@ -1233,6 +1233,16 @@ main { display: block; }
 [data-theme="dark"] .btn-outline { color: #FFFFFF; }
 [data-theme="dark"] .hero-badge-text { color: var(--gold); }
 [data-theme="dark"] .hero-sub { color: var(--slate); }
+[data-theme="dark"] .form-submit {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+[data-theme="dark"] .form-submit:hover { background: var(--gold-light); }
+/* Gold-accessible was designed for white backgrounds; restore bright gold on dark section backgrounds */
+[data-theme="dark"] #about .section-label,
+[data-theme="dark"] #services .section-label,
+[data-theme="dark"] #faq .section-label,
+[data-theme="dark"] #contact .section-label { color: var(--gold); }
 
 
 /* ─── Accessibility ────────────────────────────────────────────────── */
