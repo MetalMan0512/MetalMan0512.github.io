@@ -24,6 +24,7 @@ p a, li a, .faq-answer a, .contact-detail-value a { text-decoration: underline; 
   --gold:         #C9A84C;
   --gold-light:   #E2C47A;
   --gold-dark:    #9E7D30;
+  --gold-accessible: #7D6018; /* passes WCAG AA on white/off-white */
   --white:        #FFFFFF;
   --off-white:    #F4F6F9;
   --slate:        #8B9AB0;
@@ -46,6 +47,11 @@ p a, li a, .faq-answer a, .contact-detail-value a { text-decoration: underline; 
   color: var(--gold);
   margin-bottom: 12px;
 }
+/* Accessible gold for section labels on light backgrounds */
+#about .section-label,
+#services .section-label,
+#faq .section-label,
+#contact .section-label { color: var(--gold-accessible); }
 .section-title {
   font-family: 'Oswald', sans-serif;
   font-size: clamp(28px, 4vw, 42px);
@@ -201,7 +207,9 @@ p a, li a, .faq-answer a, .contact-detail-value a { text-decoration: underline; 
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: var(--navy-deep);
+  background:
+    linear-gradient(rgba(10, 22, 40, 0.91), rgba(10, 22, 40, 0.91)),
+    url('../assets/backgrounds/hero-bg.webp') center / cover no-repeat;
   overflow: hidden;
   padding-top: 72px;
 }
@@ -428,19 +436,13 @@ a.hero-license-card:hover {
 /* ─── How It Works ───────────────────────────────────────────────────────── */
 #process {
   padding: 100px 0;
-  background: var(--navy-mid);
+  background:
+    linear-gradient(rgba(18, 35, 61, 0.88), rgba(18, 35, 61, 0.88)),
+    url('../assets/backgrounds/process-bg.webp') center / cover no-repeat;
   position: relative;
   overflow: hidden;
 }
-#process::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
+#process::before { display: none; }
 .process-inner { position: relative; z-index: 1; }
 .process-header { text-align: center; margin-bottom: 64px; }
 .process-steps {
@@ -616,14 +618,15 @@ a.hero-license-card:hover {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  visibility: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease, visibility 0s linear 0.3s;
   padding: 0 24px;
   font-size: 14px;
   color: var(--text-body);
   line-height: 1.8;
   background: var(--off-white);
 }
-.faq-answer.open { max-height: 640px; padding: 18px 24px; }
+.faq-answer.open { max-height: 640px; padding: 18px 24px; visibility: visible; transition: max-height 0.3s ease, padding 0.3s ease, visibility 0s linear 0s; }
 @media (max-width: 768px) {
   .faq-grid { grid-template-columns: 1fr; }
 }
@@ -849,19 +852,13 @@ a.hero-license-card:hover {
 /* ─── Why Choose Daniel ───────────────────────────────────────────────── */
 #why {
   padding: 100px 0;
-  background: var(--navy-light);
+  background:
+    linear-gradient(rgba(30, 58, 95, 0.93), rgba(30, 58, 95, 0.93)),
+    url('../assets/backgrounds/why-bg.webp') center / cover no-repeat;
   position: relative;
   overflow: hidden;
 }
-#why::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
+#why::before { display: none; }
 .why-inner { position: relative; z-index: 1; }
 .why-grid {
   display: grid;
@@ -898,7 +895,7 @@ a.hero-license-card:hover {
   color: var(--white);
   margin-bottom: 6px;
 }
-.why-feature-desc { font-size: 14px; color: var(--slate); line-height: 1.7; }
+.why-feature-desc { font-size: 14px; color: #D5DAE2; line-height: 1.7; }
 .why-clients-box {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
@@ -912,7 +909,7 @@ a.hero-license-card:hover {
   color: var(--white);
   margin-bottom: 8px;
 }
-.why-clients-sub { font-size: 14px; color: var(--slate); margin-bottom: 28px; }
+.why-clients-sub { font-size: 14px; color: #D5DAE2; margin-bottom: 28px; }
 .client-list {
   display: flex;
   flex-direction: column;
@@ -942,8 +939,8 @@ a.hero-license-card:hover {
 }
 .client-sector {
   font-size: 12px;
-  color: var(--slate);
-  background: rgba(255,255,255,0.05);
+  color: #D5DAE2;
+  background: rgba(255,255,255,0.12);
   padding: 3px 10px;
   border-radius: 2px;
 }
@@ -1028,7 +1025,7 @@ a.hero-license-card:hover {
 .form-group select:focus,
 .form-group textarea:focus { border-color: var(--gold); }
 .form-group textarea { resize: vertical; min-height: 120px; }
-.form-group select { cursor: pointer; }
+.form-group select { cursor: pointer; padding-right: 36px; }
 .form-submit {
   width: 100%;
   padding: 16px;
@@ -1168,7 +1165,7 @@ main { display: block; }
   --off-white:    #142940;
   --text-body:    #A0AEC0;
   --text-strong:  #E2E8F0;
-  --text-muted:   #718096;
+  --text-muted:   #94A3B8;
   --border-light: rgba(255, 255, 255, 0.08);
 }
 [data-theme="dark"] body {
@@ -1236,6 +1233,16 @@ main { display: block; }
 [data-theme="dark"] .btn-outline { color: #FFFFFF; }
 [data-theme="dark"] .hero-badge-text { color: var(--gold); }
 [data-theme="dark"] .hero-sub { color: var(--slate); }
+[data-theme="dark"] .form-submit {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+[data-theme="dark"] .form-submit:hover { background: var(--gold-light); }
+/* Gold-accessible was designed for white backgrounds; restore bright gold on dark section backgrounds */
+[data-theme="dark"] #about .section-label,
+[data-theme="dark"] #services .section-label,
+[data-theme="dark"] #faq .section-label,
+[data-theme="dark"] #contact .section-label { color: var(--gold); }
 
 
 /* ─── Accessibility ────────────────────────────────────────────────── */
